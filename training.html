@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Training Center - OFX Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f172a;
+      color: white;
+    }
+    .container {
+      max-width: 480px;
+      margin: auto;
+      padding: 1rem;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #22d3ee;
+    }
+    .video-card {
+      background-color: #1e293b;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+    }
+    .video-card i {
+      font-size: 1.8rem;
+      color: #22d3ee;
+    }
+    .video-info {
+      flex-grow: 1;
+    }
+    .video-info h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+    .video-info p {
+      font-size: 0.9rem;
+      margin: 0.3rem 0;
+    }
+    progress {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      appearance: none;
+    }
+    progress::-webkit-progress-bar {
+      background-color: #334155;
+      border-radius: 3px;
+    }
+    progress::-webkit-progress-value {
+      background-color: #22d3ee;
+      border-radius: 3px;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #1e293b;
+      border-top: 1px solid #334155;
+      padding: 1rem 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      max-width: 480px;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .nav a.active {
+      color: #22d3ee;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Training Center</h2>
+
+    {% for video in videos %}
+    <div class="video-card">
+      <i class="fas fa-play-circle"></i>
+      <div class="video-info">
+        <h3>{{ video.title }}</h3>
+        <p>Duration: {{ video.duration }}</p>
+        <progress value="40" max="100"></progress>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="nav">
+    <a href="/">Dashboard</a>
+    <a href="/training" class="active">Training</a>
+    <a href="/referral">Referrals</a>
+    <a href="/wallet">Wallet</a>
+    <a href="/account">Account</a>
+  </div>
+
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>
